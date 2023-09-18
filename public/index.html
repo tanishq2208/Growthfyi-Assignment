@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Growthfyi Assignment</title>
+</head>
+<body>
+    <h1>SEO API</h1>
+    <form id="apiForm" action="/seoInfo" method="POST">
+        <label for="url">Enter URL : </label>
+        <input type="text" id="url" name="url">
+        <button type="submit" onclick="submitBtn">Submit</button>
+    </form>
+    <div id="resultContainer">
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Growthfyi Assignment</title>
+</head>
+<body>
+    <h1>SEO API</h1>
+    <form id="seoForm">
+        <label for="url">Enter URL : </label>
+        <input type="text" id="urlInput" name="url">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="seoResult"></div>
+
+    <script>
+        document.getElementById('seoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const url = document.getElementById('urlInput').value;
+            
+            fetch('/seoInfo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: url })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // You can access the JSON data in the 'data' variable
+                const seoResultDiv = document.getElementById('seoResult');
+                seoResultDiv.innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet">
+    <title>Growthfyi Assignment</title>
+    <style>
+        /* Style the container */
+        #seoResult {
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+            white-space: pre-wrap; /* Preserve line breaks and wrap text */
+        }
+    </style>
+</head>
+<body>
+    <h1>SEO API Data</h1>
+    <form id="seoForm">
+        <label for="url">Enter URL : </label>
+        <input type="text" id="urlInput" name="url" placeholder="https://www.google.com">
+        <button type="submit">Submit</button>
+    </form>
+    <pre id="seoResult">
+    </pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
